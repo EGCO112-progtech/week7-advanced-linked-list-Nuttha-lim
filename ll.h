@@ -41,7 +41,7 @@ void printListR( LLPtr currentPtr )
          currentPtr = currentPtr->nextPtr;
       }
       while (currentPtr != NULL) {
-         printf("%d %s --> ", currentPtr->score, currentPtr->data);
+         printf("%d %s -->", currentPtr->score, currentPtr->data);
          currentPtr = currentPtr->prevPtr;
      }
       printf( "NULL\n");
@@ -148,7 +148,7 @@ int deletes( LLPtr *sPtr, int score )
       } // end if
    } // end else
 
-   return '\0';
+   return 0;
 } // end function delete
 
 // return 1 if the list is empty, 0 otherwise
@@ -169,11 +169,11 @@ void printList( LLPtr currentPtr )
 
       // while not the end of the list
       while ( currentPtr->nextPtr!= NULL ) {
-         printf("%d %s --> ", currentPtr->score, currentPtr->data);
+         printf("%d %s -->", currentPtr->score, currentPtr->data);
          currentPtr = currentPtr->nextPtr;
       } // end while
 
-      printf("%d %s --> NULL\n", currentPtr->score, currentPtr->data);
+      printf("%d %s -->NULL\n", currentPtr->score, currentPtr->data);
        
 
      

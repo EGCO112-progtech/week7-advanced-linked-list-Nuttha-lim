@@ -15,19 +15,13 @@ int main( void )
    instructions(); // display the menu
    printf( "%s", "? " );
    scanf( "%u", &choice );
-   getchar();
+   fflush(stdin);
 
    // loop while user does not choose 3
    while ( choice != 3 ) { 
       switch ( choice ) { 
          case 1:
-            fgets(input, sizeof(input), stdin); // ✅ ใช้ fgets() เพื่ออ่านทั้งบรรทัด
-            sscanf(input, "%d %[^\n]", &score, data); // ✅ แยก ID และชื่อ
-            /*scanf( "%d", &score );
-            getchar();
-            fgets(data, sizeof(data), stdin);
-            data[strcspn(data, "\n")] = 0;*/
-
+            scanf("%d %49[^\n]", &score, data);
             insert( &startPtr, score, data ); // insert item in list
             printList( startPtr );
             printListR(startPtr);
@@ -64,6 +58,6 @@ int main( void )
       getchar();
    } // end while
   /* Clear all nodes at the end of nodes*/
-  clearList(&startPtr);
+   clearList(&startPtr);
    puts( "End of run." );
 } // end main
