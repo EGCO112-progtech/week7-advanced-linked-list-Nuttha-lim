@@ -9,19 +9,23 @@ int main( void )
 { 
    LLPtr startPtr = NULL; // initially there are no nodes
    unsigned int choice; // user's choice
-   char input[100],data[50]; // char entered by user
+   char data[50]; // char entered by user
    int score;
+
+   setbuf(stdout, NULL);
 
    instructions(); // display the menu
    printf( "%s", "? " );
    scanf( "%u", &choice );
-   fflush(stdin);
+   getchar();
 
    // loop while user does not choose 3
    while ( choice != 3 ) { 
       switch ( choice ) { 
          case 1:
-            scanf("%d %49[^\n]", &score, data);
+            scanf("%d ", &score);
+            fgets(data, sizeof(data), stdin);
+            data[strcspn(data, "\n")] = 0;
             insert( &startPtr, score, data ); // insert item in list
             printList( startPtr );
             printListR(startPtr);
