@@ -17,15 +17,12 @@ int main( void )
    instructions(); // display the menu
    printf( "%s", "? " );
    scanf( "%u", &choice );
-   getchar();
 
    // loop while user does not choose 3
    while ( choice != 3 ) { 
       switch ( choice ) { 
          case 1:
-            scanf("%d ", &score);
-            fgets(data, sizeof(data), stdin);
-            data[strcspn(data, "\n")] = 0;
+            scanf("%d %s", &score,data);
             insert( &startPtr, score, data ); // insert item in list
             printList( startPtr );
             printListR(startPtr);
