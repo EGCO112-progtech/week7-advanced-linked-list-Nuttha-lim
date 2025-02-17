@@ -34,10 +34,8 @@ void clearList(LLPtr *sPtr)
 void printListR( LLPtr currentPtr )
 {
    if ( isEmpty( currentPtr ) ) {
-      puts( "List is empty.\n" );
    }
    else {
-      puts( "The list is:" );
       while ( currentPtr->nextPtr!= NULL ) {
          currentPtr = currentPtr->nextPtr;
       }
@@ -78,7 +76,7 @@ void insert(LLPtr *sPtr, int score, const char *data)
       currentPtr = *sPtr;
 
       // loop to find the correct location in the list
-      while ( currentPtr != NULL && (score < currentPtr->score || (score == currentPtr->score && strcmp(data, currentPtr->data) > 0))) {
+      while ( currentPtr != NULL && (score > currentPtr->score || (score == currentPtr->score && strcmp(data, currentPtr->data) > 0))) {
          previousPtr = currentPtr; // walk to ...
          currentPtr = currentPtr->nextPtr; // ... next node
       } // end while
@@ -166,7 +164,7 @@ void printList( LLPtr currentPtr )
       puts( "List is empty.\n" );
    } // end if
    else {
-      
+      puts( "The list is:" );
 
       // while not the end of the list
       while ( currentPtr->nextPtr!= NULL ) {

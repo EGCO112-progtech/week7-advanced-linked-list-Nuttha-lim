@@ -9,7 +9,7 @@ int main( void )
 { 
    LLPtr startPtr = NULL; // initially there are no nodes
    unsigned int choice; // user's choice
-   char data[50]; // char entered by user
+   char input[100],data[50]; // char entered by user
    int score;
 
    instructions(); // display the menu
@@ -22,10 +22,12 @@ int main( void )
       switch ( choice ) { 
          case 1:
             printf( "Enter a ID and name: " );
-            scanf( "%d", &score );
+            fgets(input, sizeof(input), stdin); // ✅ ใช้ fgets() เพื่ออ่านทั้งบรรทัด
+            sscanf(input, "%d %[^\n]", &score, data); // ✅ แยก ID และชื่อ
+            /*scanf( "%d", &score );
             getchar();
             fgets(data, sizeof(data), stdin);
-            data[strcspn(data, "\n")] = 0;
+            data[strcspn(data, "\n")] = 0;*/
 
             insert( &startPtr, score, data ); // insert item in list
             printListR(startPtr);
