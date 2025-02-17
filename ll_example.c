@@ -21,7 +21,6 @@ int main( void )
    while ( choice != 3 ) { 
       switch ( choice ) { 
          case 1:
-            printf( "Enter a ID and name: " );
             fgets(input, sizeof(input), stdin); // ✅ ใช้ fgets() เพื่ออ่านทั้งบรรทัด
             sscanf(input, "%d %[^\n]", &score, data); // ✅ แยก ID และชื่อ
             /*scanf( "%d", &score );
@@ -30,9 +29,8 @@ int main( void )
             data[strcspn(data, "\n")] = 0;*/
 
             insert( &startPtr, score, data ); // insert item in list
-            printListR(startPtr);
             printList( startPtr );
-            
+            printListR(startPtr);
             break;
          case 2: // delete an element
             // if list is not empty
@@ -44,9 +42,8 @@ int main( void )
                // if character is found, remove it
                if ( deletes( &startPtr, score ) ) { // remove item
                   printf( "%d deleted.\n", score );
-                  printListR(startPtr);
                   printList( startPtr );
-                  
+                  printListR(startPtr);
                } // end if
                else {
                   printf( "%d not found.\n\n", score );

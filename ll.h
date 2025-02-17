@@ -34,6 +34,7 @@ void clearList(LLPtr *sPtr)
 void printListR( LLPtr currentPtr )
 {
    if ( isEmpty( currentPtr ) ) {
+      puts( "List is empty.\n" );
    }
    else {
       while ( currentPtr->nextPtr!= NULL ) {
