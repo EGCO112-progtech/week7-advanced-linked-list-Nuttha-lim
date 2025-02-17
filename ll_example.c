@@ -9,7 +9,7 @@ int main( void )
 { 
    LLPtr startPtr = NULL; // initially there are no nodes
    unsigned int choice; // user's choice
-   char data[50];; // char entered by user
+   char data[50]; // char entered by user
    int score;
 
    instructions(); // display the menu
@@ -28,8 +28,9 @@ int main( void )
             data[strcspn(data, "\n")] = 0;
 
             insert( &startPtr, score, data ); // insert item in list
-            printList( startPtr );
             printListR(startPtr);
+            printList( startPtr );
+            
             break;
          case 2: // delete an element
             // if list is not empty
@@ -41,8 +42,9 @@ int main( void )
                // if character is found, remove it
                if ( deletes( &startPtr, score ) ) { // remove item
                   printf( "%d deleted.\n", score );
-                  printList( startPtr );
                   printListR(startPtr);
+                  printList( startPtr );
+                  
                } // end if
                else {
                   printf( "%d not found.\n\n", score );
